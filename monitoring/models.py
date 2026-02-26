@@ -9,4 +9,4 @@ class WaterQualityReading(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Reading {self.id}"
+        return f"Reading at {self.timestamp}"
