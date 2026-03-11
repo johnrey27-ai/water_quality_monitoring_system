@@ -14,9 +14,8 @@ class WaterQualityViewSet(viewsets.ModelViewSet):
     queryset = WaterQualityReading.objects.all().order_by('-created_at')
     serializer_class = WaterQualitySerializer
 
-    # Enable search and ordering
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
-    search_fields = ['ph']  # You can change to other fields if needed
+    search_fields = ['ph']
     ordering_fields = ['created_at', 'temperature', 'predicted_do']
 
     @action(detail=False, methods=['get'])

@@ -4,7 +4,7 @@ class WaterQualityReading(models.Model):
     temperature = models.FloatField()
     ph = models.FloatField()
     turbidity = models.FloatField()
-    light_intensity = models.FloatField()  # NEW FIELD
+    light_intensity = models.FloatField()
     predicted_do = models.FloatField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

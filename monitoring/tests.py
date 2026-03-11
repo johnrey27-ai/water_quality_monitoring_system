@@ -29,7 +29,6 @@ class WaterQualityAPITest(APITestCase):
 
         reading = WaterQualityReading.objects.first()
 
-        # Check predicted_do is generated
         self.assertIsNotNone(reading.predicted_do)
 
     def test_get_all_readings(self):

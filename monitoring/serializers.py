@@ -9,9 +9,6 @@ class WaterQualitySerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ['predicted_do']
 
-    # -------------------------
-    # Field-level validations
-    # -------------------------
 
     def validate_temperature(self, value):
         if not 0 <= value <= 50:
@@ -41,9 +38,7 @@ class WaterQualitySerializer(serializers.ModelSerializer):
             )
         return value
 
-    # -------------------------
-    # Object-level validation
-    # -------------------------
+
 
     def validate(self, attrs):
         """
@@ -56,9 +51,7 @@ class WaterQualitySerializer(serializers.ModelSerializer):
             )
         return attrs
 
-    # -------------------------
-    # DO Prediction Logic
-    # -------------------------
+
 
     def calculate_do(self, temp, ph, turbidity, light):
         """
@@ -73,7 +66,6 @@ class WaterQualitySerializer(serializers.ModelSerializer):
             - (0.0005 * light)
         )
 
-        # DO cannot be negative
         return round(max(predicted_do, 0), 2)
 
     def create(self, validated_data):
