@@ -17,7 +17,6 @@ def environment_summary(request):
 
     try:
 
-        # API 1: Country information
         country_url = f"https://restcountries.com/v3.1/name/{country}"
         country_response = requests.get(country_url)
 
@@ -32,7 +31,7 @@ def environment_summary(request):
         capital = country_data.get("capital", ["Unknown"])[0]
         population = country_data.get("population", "Unknown")
 
-        # API 2: Weather information
+    
         api_key = "deadef5fec5c9d9754342c1bf104f358"
 
         weather_url = f"https://api.openweathermap.org/data/2.5/weather?q={capital}&appid={api_key}&units=metric"
@@ -51,7 +50,7 @@ def environment_summary(request):
         humidity = weather_data["main"]["humidity"]
         condition = weather_data["weather"][0]["main"]
 
-        # DATA TRANSFORMATION
+
         result = {
             "country": country,
             "capital": capital,
