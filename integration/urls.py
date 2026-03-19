@@ -1,6 +1,12 @@
 from django.urls import path
-from .views import environment_summary
+from . import views
+
+app_name = "environment"  
 
 urlpatterns = [
-    path("environment-summary/", environment_summary),
+    path(
+        "environment-summary/",
+        views.environment_summary,
+        name="environment_summary"  
+    ),
 ]
