@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import environment_summary
 
+app_name = "environment"
+
 urlpatterns = [
-    path("environment-summary/<str:country>/", environment_summary, name="environment-summary"),
+    path("environment-summary/", environment_summary),
 ]
