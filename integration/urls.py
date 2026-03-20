@@ -1,12 +1,12 @@
 from django.urls import path
-from . import views
+from .views import environment_summary
 
-app_name = "environment"  
+app_name = "environment"
 
 urlpatterns = [
     path(
         "environment-summary/",
-        views.environment_summary,
-        name="environment_summary"  
+        environment_summary,
+        name="environment_summary",
     ),
 ]
