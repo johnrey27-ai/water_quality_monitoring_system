@@ -2,18 +2,18 @@ import requests
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 
+@swagger_auto_schema(
+    method='get',
+    manual_parameters=[
+        openapi.Parameter('country', openapi.IN_PATH, description="Country name (e.g., USA, France, Japan)", type=openapi.TYPE_STRING, required=True)
+    ]
+)
 @api_view(['GET'])
-def environment_summary(request):
-
-    country = request.GET.get("country")
-
-    if not country:
-        return Response(
-            {"error": "Country parameter is required"},
-            status=status.HTTP_400_BAD_REQUEST
-        )
+def environment_summary(request, country):
 
     try:
 
